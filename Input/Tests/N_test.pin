@@ -1,0 +1,47 @@
+!Pro4
+!Using PIPA v0.2
+
+title
+N_0001
+
+structure input
+/Users/alggroup/Documents/Development/Common/PDB/melittinquat.pdb
+
+initial configuration
+random
+
+begin experiment
+input
+/Users/alggroup/Documents/Development/PIPA/lib/Data/melittin_Ca.dat
+flag
+CA
+end experiment
+
+begin cs
+weight 1.0
+TALOS
+dir /Users/alggroup/Documents/Proteins/TALOS-N/melittin_N
+end cs
+
+begin MC
+snapshot 100
+threshold 0.0001
+autocorr 1000
+autosave 20
+maxsweeps 6.5
+mobile 2,25
+end MC
+
+begin temperature
+annealing
+exp 0.99900
+maxt 100.0
+t0  0.631
+mint 0.0
+end temperature
+
+begin output
+ram melittin_N
+pdb N
+time N_test_time
+end output

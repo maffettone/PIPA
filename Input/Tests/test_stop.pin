@@ -1,0 +1,53 @@
+title
+1Stop
+
+structure input
+/Users/alggroup/Documents/Proteins/PDB/melittinquat.pdb
+!/Users/alggroup/Documents/Development/PIPA/lib/allres.pdb
+
+initial configuration
+n/a
+
+begin experiment
+PDF
+input
+/Users/alggroup/Documents/Development/PIPA/lib/Data/melittin_nmrpdf.csv
+flag
+bb_generic
+end experiment
+
+begin pdf
+flag density
+scat neutron+d
+r_max 37.1
+r_min 0.1
+dr 0.01
+end pdf
+
+begin cs
+only
+weight 1.0
+dir /Users/alggroup/Documents/Proteins/TALOS-N/Melittin_from_SPARTA
+end cs
+
+begin MC
+snapshot 50
+threshold 0.0001
+autocorr 100
+maxsweeps 4.0
+end MC
+
+begin temperature
+annealing
+exp 0.996
+maxt 100.0
+t0 0.00001
+mint 0.0
+end temperature
+
+begin output
+pdb mel
+dist dist_list
+pdf pdf
+time timedata
+end output

@@ -1,0 +1,45 @@
+title
+thermo1
+
+structure input
+../Common/PDB/melittinquat.pdb
+
+initial configuration
+random
+
+begin experiment
+input
+./lib/Data/melittin_Ca.dat
+flag
+CA
+end experiment
+
+begin cs
+TALOS
+dir /Users/alggroup/Documents/Proteins/TALOS-N/Melittin_from_SPARTA
+end cs
+
+begin MC
+snapshot 100
+threshold 0.0001
+autocorr 1000
+autosave 20
+maxsweeps 6.0
+mobile 2,25
+end MC
+
+begin temperature
+annealing
+exp 0.99
+maxt 100.0
+t0 5.0
+mint 0.0
+end temperature
+
+begin output
+!ram melittin
+pdb melittin_stop
+!dist dist_list
+thermo ECvT
+time timedata
+end output

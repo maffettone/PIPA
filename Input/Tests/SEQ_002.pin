@@ -1,0 +1,42 @@
+title
+SEQ_002
+
+structure input
+../Common/PDB/melittinseq.pdb
+
+initial configuration
+random
+
+begin experiment
+input
+./lib/Data/melittin_Ca.dat
+flag
+CA
+end experiment
+
+begin cs
+TALOS
+dir /Users/alggroup/Documents/Proteins/TALOS-N/Melittin_from_SPARTA
+end cs
+
+begin MC
+snapshot 100
+threshold 0.0001
+autocorr 5000
+autosave 20
+maxsweeps 7.5
+mobile 2,25
+end MC
+
+begin temperature
+annealing
+exp 0.996
+maxt 100.0
+t0  10.0
+mint 0.0
+end temperature
+
+begin output
+pdb NPR
+time SEQ_002_time
+end output

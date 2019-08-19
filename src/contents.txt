@@ -1,0 +1,142 @@
+Module angle_manip
+  ! --------------------Public Contents-----------------------------------------
+  ! SUBROUTINE: protein_bend(protein,residue_index,change_in_angle,angle_type,[info,errmsg])
+  ! SUBROUTINE: initial_config(protein,trip_prby)
+  ! SUBROUTINE: omega_180(peptide_list)
+  ! ----------------------------------------------------------------------------
+  ! --------------------Private Contents----------------------------------------
+  ! SUBROUTINE: melt(protein, log_2(melt_moves))
+  ! ----------------------------------------------------------------------------
+Module class_proteins
+  ! --------------------Public Contents-----------------------------------------
+  ! FUNCTION: protein_(residue_list,[bbonly])
+  ! FUNCTION: residue_(label,atom_list)
+  ! FUNCTION: atom_(label,symbol,coordinates,[idx])
+  ! SUBROUTINE: change_coords(atom,new_coordinates)
+  ! FUNCTION: get_label(atom or residue)
+  ! FUNCTION: get_sym(atom)
+  ! FUNCTION: get_coords(atom)
+  ! FUNCTION: get_dihedral(residue,angle_type)
+  ! SUBROUTINE: change_dihedral(residue, change_in_angle, angle_type)
+  ! SUBROUTINE: calc_dihedral(residue_list)
+  ! ----------------------------------------------------------------------------
+  ! --------------------Private Contents----------------------------------------
+  ! FUNCTION: bb_list(atom_label)
+  ! FUNCTION: count_spec(residue_list,atomic_symbol,bbonly)
+  ! ----------------------------------------------------------------------------
+Module cmd_io
+  ! --------------------Public Contents-----------------------------------------
+  ! SUBROUTINE: get_input(filename)
+  ! SUBROUTINE: write_pot(filename,counter,[continuation,chisquared])
+  ! SUBROUTINE: write_time(filename,total_count,[chisquared])
+  ! ----------------------------------------------------------------------------
+  ! --------------------Private Contents----------------------------------------
+  !
+  ! ----------------------------------------------------------------------------
+Module CSprby
+  ! --------------------Public Contents-----------------------------------------
+  ! SUBROUTINE: incorpCS(triplet_probability, number_residues)
+  ! ----------------------------------------------------------------------------
+  ! --------------------Private Contents----------------------------------------
+  ! FUNCTION: dangle_read(directory,number_residues,triplet_probability)
+  ! FUNCTION: dangle_old_read(directory,number_residues,triplet_probability)
+  ! FUNCTION: talos_read(directory,number_residues,triplet_probability)
+  ! ----------------------------------------------------------------------------
+Module dist_list
+  ! --------------------Public Contents-----------------------------------------
+  ! FUNCTION: dist_mat(protein, [flag])
+  ! SUBROUTINE: change_dist_mat(distance_matrix,protein,residue_index,[flag])
+  ! SUBROUTINE: sort_dl(distance_matrix,sorted_list)
+  ! FUNCTION: chisq(sorted_experiment,sorted_simulation)
+  ! ----------------------------------------------------------------------------
+  ! --------------------Private Contents----------------------------------------
+  ! FUNCTION: bb_dist_mat(protein)
+  ! FUNCTION: bbsc_dist_mat(protein)
+  ! FUNCTION: ca_dist_mat(protein)
+  ! ----------------------------------------------------------------------------
+Module exp_io
+  ! --------------------Public Contents-----------------------------------------
+  ! SUBROUTINE: read_exp(filename,G(r),[info_integer,error_message])
+  ! SUBROUTINE: read_p_r(filename,G(r),[info_integer,error_message])
+  ! SUBROUTINE: write_xye(filename,xye_data,[info_integer,error_message])
+  ! SUBROUTINE: read_xye(filename,G(r),[info_integer,error_message])
+  ! SUBROUTINE: read_dist_list(filename,distance_list,[info_integer,error_message])
+  ! SUBROUTINE: write_dist_list(filename, dist_list,[info_integer,error_message])
+  ! ----------------------------------------------------------------------------
+  ! --------------------Private Contents----------------------------------------
+  !
+  ! ----------------------------------------------------------------------------
+Module likelihood
+  ! --------------------Public Contents-----------------------------------------
+  ! FUNCTION: rama_likely(peptide_list, phi-psi-prby)
+  ! SUBROUTINE: selection_hist(trip_prby,i_res,phi,psi,finalize)
+  ! ----------------------------------------------------------------------------
+  ! --------------------Private Contents----------------------------------------
+  ! 
+  ! ----------------------------------------------------------------------------
+Module maths
+  ! --------------------------Public Contents-----------------------------------
+  ! FUNCTION: inv(A)
+  ! FUNCTION: eigenvalues(A)
+  ! FUNCTION: det(A)
+  ! FUNCTION: cross(A,B)
+  ! SUBROUTINE: RotMatrix(angle,vector,matrix)
+  ! FUNCTION: factorial(n)
+  ! FUNCTION: linear_interp(x,y,x_targ)
+  ! FUNCTION: bin_data(x,y,n_bin)
+  ! FUNCTION: convolve(x,h)
+  ! ----------------------------------------------------------------------------
+Module pdb_io
+  ! --------------------Public Contents-----------------------------------------
+  ! read_pdb(filename,protein,[backbone_only,info_integer,error_message])
+  ! write_pdb(filename,protein,[backbone_only])
+  ! ----------------------------------------------------------------------------
+  ! --------------------Private Contents----------------------------------------
+  ! sequence2geometry()
+  ! ----------------------------------------------------------------------------
+Module ramachandran
+  ! --------------------Public Contents-----------------------------------------
+  ! SUBROUTINE: Triplet_Prby(peptide_list, phi-psi-prby)
+  ! SUBROUTINE: write_triplet(trip_prby,file_stem)
+  ! FUNCTION: cumulative_prby(triplet_prby)
+  ! FUNCTION: sample_cum(cumulative_prby,random,index)
+  ! SUBROUTINE: Uniform_Triplet_Prby(peptide_list,phi-psi-prby)
+  ! ----------------------------------------------------------------------------
+  ! --------------------Private Contents----------------------------------------
+  ! SUBROUTINE: norm_P(probability_dist)
+  ! ----------------------------------------------------------------------------
+Module random
+  ! --------------------Public Contents-----------------------------------------
+  ! init_random_seed()
+  ! rand_norm_dist(radom[0,1])
+  ! ----------------------------------------------------------------------------
+  ! --------------------Private Contents----------------------------------------
+  !
+  ! ----------------------------------------------------------------------------
+Module sorting
+  ! --------------------Public Contents-----------------------------------------
+  ! SUBROUTINE: hpsort(real_array)
+  ! ----------------------------------------------------------------------------
+  ! --------------------Private Contents----------------------------------------
+  ! 
+  ! ----------------------------------------------------------------------------
+Module temperature
+  ! --------------------Public Contents-----------------------------------------
+  ! SUBROUTINE: adjust_T(Total_MC_Sweeps)
+  ! ----------------------------------------------------------------------------
+  ! --------------------Private Contents----------------------------------------
+  !
+  ! ----------------------------------------------------------------------------
+Module types
+  ! --------------------Public Contents-----------------------------------------
+  ! cart2frac(matrix[a,b,c])
+  ! frac2cart(matrix[alpha,a,beta,b,gamma,c])
+  ! strlen(string_with_trailing_blanks)
+  ! upper_case(string)
+  ! lower_case(string)
+  ! alphabetical(character)
+  ! ----------------------------------------------------------------------------
+
+
+-I/usr/local/include
+

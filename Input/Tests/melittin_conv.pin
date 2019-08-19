@@ -1,0 +1,57 @@
+!Melittin with blurred PDF
+!Local
+
+title
+melittin_conv
+
+structure input
+/Users/alggroup/Documents/Proteins/PDB/melittin_seq.pdb
+
+initial configuration
+random
+
+begin experiment
+PDF
+input
+/Users/alggroup/Documents/Development/PIPA/lib/Data/melittin_nmrpdf_conv.csv
+flag
+bb_generic
+end experiment
+
+begin cs
+only
+weight 1.0
+TALOS
+dir /Users/alggroup/Documents/Proteins/TALOS-N/Melittin_from_SPARTA
+end cs
+
+begin pdf
+flag density
+scat neutron+d
+r_max 37.1
+r_min 0.
+dr 0.05
+end pdf
+
+begin MC
+maxsweeps 6.5
+snapshot 100
+autocorr 5000
+autosave 20
+threshold 0.0001
+end MC
+
+begin temperature
+annealing
+exp 0.996
+t0 10.0
+maxt 100.0
+mint 0.0
+end temperature
+
+begin output
+dist dist_list
+pdf melittin_conv
+pdb melittin_conv
+time melittin_time
+end output

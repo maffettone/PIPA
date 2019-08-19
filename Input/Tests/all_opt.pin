@@ -1,0 +1,70 @@
+title
+All available options
+
+structure input
+../Common/PDB/melittinquat.pdb
+
+initial configuration
+n/a
+!random
+!random all
+!gaussian
+!gaussian all
+!melt
+!distance generation
+!helix
+
+begin experiment
+!PDF or DL
+input
+./lib/Data/melittin_Ca.dat
+flag
+CA
+end experiment
+
+begin pdf
+flag (none,rcf,density,gpdf,d(r),g(r))
+scat (xrd,neutron,neutron+d)
+r_max 50.
+r_min 0.
+dr 0.5
+end pdf
+
+begin cs
+!only (only cs, no ramachandran)
+weight 1.0 (wighting w.r.t. Ramachandran. <0 for weighting Ramachandran)
+!DANGLE or TALOS or none
+DANGLE
+dir /Users/alggroup/Documents/Proteins/DANGLE/melittin
+end cs
+
+begin MC
+maxsweeps 2.0 ((log10) Maximum number of MC sweeps)
+snapshot 10 (Number of snapshots in maxium sweeps limit)
+autocorr 100 (Number of sweeps to calc autocorrelation time)
+autosave 10 (Number of covariences saved in autocorr calc)
+threshold 0.0001
+mobile 3,3
+end MC
+
+begin temperature
+annealing
+!constant
+!linear 1.0
+exp 0.5
+!tlinear 0.5
+!tlog 0.5
+!texp 5e-5
+!t0 0.00
+maxt 100.0
+mint 0.0
+end temperature
+
+begin output
+!pdf melittin_stop
+ram melittin
+pdb melittin_stop
+dist dist_list
+therm ECvT
+time timedata
+end output

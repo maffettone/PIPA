@@ -1,0 +1,44 @@
+title
+GB3_test
+
+structure input
+/Users/alggroup/Documents/Proteins/PDB_testset/GB3.pdb
+
+initial configuration
+n/a
+
+begin experiment
+input
+/Users/alggroup/Documents/Development/PIPA/lib/TestSetDist/GB3_Ca.dat
+flag
+CA
+end experiment
+
+begin cs
+only
+weight 1.0
+TALOS
+dir /Users/alggroup/Documents/Proteins/TALOS-N/GB3
+end cs
+
+begin MC
+snapshot 100
+threshold 0.0001
+autocorr 10000
+autosave 20
+maxsweeps 4.0
+end MC
+
+begin temperature
+annealing
+exp 0.99822
+maxt 0.001
+t0  0.0001
+mint 0.0
+end temperature
+
+begin output
+pdb GB3
+time GB3_033_time
+ram GB3
+end output
